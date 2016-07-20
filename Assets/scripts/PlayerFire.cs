@@ -4,30 +4,49 @@ using System.Collections;
 public class PlayerFire : MonoBehaviour {
 
 	private string name;
-	private float ammoA;
-	private float ammoB;
-	private int count;
+	private float lastTimeA;
+	private float lastTimeB;
+	private bool ai;
 
 	public GameObject Bullet;
 	GameObject BulletInstantiate;
 
-	// Use this for initialization
+	public GameObject Missile;
+	GameObject MissileInstantiate;
+
 	void Start () {
 		name = transform.parent.name;
+		ai = (name.Substring (0, 1) == "A") ? true : false;
 		name = name.Substring(name.Length-1, 1);
-		count = 0;
+		lastTimeA = Time.time;
+		lastTimeB = Time.time;
 	}
 	
 	void FixedUpdate () {
-		float fireA = Input.GetAxis ("FireA" + name);
-		float fireB = Input.GetAxis ("FireB" + name);
-		if (count > 10) {
-			count -= 10;
-			if (fireA == 1) {
-				BulletInstantiate = (GameObject)Instantiate (Bullet, transform.position , transform.rotation);
-				BulletInstantiate.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (250, 0));
+		if (!ai) {
+			float fire = Input.GetAxis ("Fire" + name);
+			if (fire == 1) {
+				fireBullet ();
+			}
+			if (fire == -1) {
+				fireMissile ();
 			}
 		}
-		count++;
+	}
+
+	public void fireBullet () {
+		if (lastTimeA + 0.2f < Time.time) {
+			BulletInstantiate = (GameObject)Instantiate (Bullet, transform.position, transform.rotation);
+			BulletInstantiate.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (750, 0));
+			lastTimeA = Time.time;
+		}
+	}
+
+	public void fireMissile () {
+		if (lastTimeB + 1f < Time.time) {
+			MissileInstantiate = (GameObject)Instantiate (Missile, transform.position, transform.rotation);
+			MissileInstantiate.GetComponent<Rigidbody2D> ().AddRelativeForce (new Vector2 (250, 0));
+			lastTimeB = Time.time;
+		}
 	}
 }

@@ -45,21 +45,25 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\AI\MainScreenAI.cs" />
+     <Compile Include="Assets\scripts\AI\SumoAI.cs" />
      <Compile Include="Assets\scripts\BulletDeletion.cs" />
+     <Compile Include="Assets\scripts\ButtonOnClick.cs" />
      <Compile Include="Assets\scripts\Main.cs" />
+     <Compile Include="Assets\scripts\Missile.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\PlayerFire.cs" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
+     <Compile Include="Assets\scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\scripts\SumoAlive.cs" />
+     <Compile Include="Assets\scripts\SumoMain.cs" />
+     <Compile Include="Assets\scripts\cylinder.cs" />
+     <Compile Include="Assets\scripts\radioButtons.cs" />
+     <Compile Include="Assets\scripts\walls.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

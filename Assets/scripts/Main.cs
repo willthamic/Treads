@@ -4,18 +4,18 @@ using System.Collections;
 public class Main : MonoBehaviour {
 
 	public GameObject Player;
+	public GameObject menu;
 	GameObject PlayerInstantiate;
+	private bool isShowing;
+
+
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 1; i <= 2; i++) {
-			PlayerInstantiate =(GameObject) Instantiate (Player, new Vector3(i*2-5,0,0), transform.rotation);
-			PlayerInstantiate.name = "Player " + i;
-		}
+		PlayerInstantiate =(GameObject) Instantiate (Player, new Vector3(-3,0,0), Quaternion.Euler(0, 0, 180));
+		PlayerInstantiate.name = "Player " + 1;
+		PlayerInstantiate =(GameObject) Instantiate (Player, new Vector3(3,0,0), transform.rotation);
+		PlayerInstantiate.name = "Player " + 2;
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	
-	}
+
 }
